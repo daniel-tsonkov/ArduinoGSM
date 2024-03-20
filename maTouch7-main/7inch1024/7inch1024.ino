@@ -60,7 +60,7 @@ void setup(void)
 {
    
     lcd.init();
-    lcd.setRotation(1);
+    lcd.setRotation(3);
     lcd.setBrightness(brightnes[b]);
     lcd.setSwapBytes(1);
     lcd.fillScreen(TFT_BLACK);

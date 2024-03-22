@@ -1,0 +1,24 @@
+#include <ArduinoJson.h>
+
+void setup() {
+  Serial.begin(9600);
+  // Вашият код за инициализация
+}
+
+void loop() {
+  // Примерен HTML код
+  const char* htmlCode = "<html><head><title>Пример</title></head><body><h1>Hello, World!</h1></body></html>";
+
+  StaticJsonDocument<200> jsonDocument;
+  deserializeJson(jsonDocument, htmlCode); // Парсване на HTML кода
+
+  const char* title = jsonDocument["head"]["title"]; // Извличане на заглавието
+  const char* body = jsonDocument["body"]["h1"]; // Извличане на съдържанието на <h1>
+
+  Serial.print("Title: ");
+  Serial.println(title);
+  Serial.print("Body: ");
+  Serial.println(body);
+
+  delay(1000);
+}
